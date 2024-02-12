@@ -8,15 +8,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: pwd
-        run: pwd
+      - name: pwd && ls -la
+        run: pwd && ls -la
+      - name: cd .. && pwd && ls -la
+        run: cd .. && pwd && ls -la
       - name: Clone the wacat repository
         run: cd .. && git clone https://github.com/mikesmallhelp/wacat.git
       - name: Install Playwright
-        run: cd wacat && npm install && npx playwright install --with-deps
+        run: cd ../wacat && npm install && npx playwright install --with-deps
       - name: Build and install wacat command
-        run: cd wacat && npm run build && npm install -g
+        run: cd ../wacat && npm run build && npm install -g
       - name: Run the test command
-        run: cd wacat && wacat test https://mikesmallhelp-test-application.vercel.app/
+        run: cd ../wacat && wacat test https://mikesmallhelp-test-application.vercel.app/
 
 
