@@ -15,6 +15,6 @@ jobs:
           cd wacat
           npm install && npx playwright install --with-deps
           npm run build && npm install -g
-          wacat test https://mikesmallhelp-test-application.vercel.app/
+          wacat test --headless https://mikesmallhelp-test-application.vercel.app/
 
 
